@@ -5,34 +5,22 @@ Cell::Cell()
 }
 
 Cell::Cell(int state)
-	:_state(state) {
+	: _state(state)
+	, _mined(false) {
 }
 
 int Cell::getState() const {
 	return _state;
 }
 
-char Cell::getChar() const {
-	switch (_state) {
-		case NORMAL:
-			return 'O';
-			break;
-		case CHECKED:
-			return ' ';
-			break;
-		case FLAGGED:
-			return '?';
-			break;
-		case MINED:
-			return 'X';
-			break;
-		default:
-			return 'U';
-			break;
-	}
-}
-
 void Cell::setState(int state) {
 	_state = state;
 }
 
+bool Cell::hasMine() const {
+	return _mined;
+}
+
+void Cell::setMine(bool s) {
+	_mined = s;
+}

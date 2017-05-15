@@ -9,7 +9,6 @@
 #define NORMAL 0
 #define CHECKED 1
 #define FLAGGED 2
-#define MINED 3
 
 class Cell {
 	public:
@@ -19,13 +18,15 @@ class Cell {
 		Cell(int);
 		// returns the current state
 		int getState() const;
-		// returns a character representing the current state
-		char getChar() const;
 		// sets the state
 		void setState(int);
+		// returns true if the cell contains a mine
+		bool hasMine() const;
+		// sets the mine state
+		void setMine(bool);
 	private:
 		int _state;
+		bool _mined;
 };
 
 #endif
-
