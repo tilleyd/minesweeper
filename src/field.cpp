@@ -123,6 +123,18 @@ bool Field::isPopulated() const {
 	return _populated;
 }
 
+int Field::getRemaining() const {
+	int count = 0;
+	for (int r = 0; r < _r; r++) {
+		for (int c = 0; c < _c; c++) {
+			if (!_field[r][c].hasMine() && _field[r][c].getState() != CHECKED) {
+				count++;
+			}
+		}
+	}
+	return count;
+}
+
 int Field::getVal(int r, int c) const {
 	// find the number of neighbouring mines
 	int y[] = {0, -1, -1, -1, 0, 1, 1, 1};

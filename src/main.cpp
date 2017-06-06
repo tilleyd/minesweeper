@@ -63,6 +63,7 @@ int main() {
 	xoff = (xoff - (field->getCols() * 2)) / 2;
 
 	bool running = true;
+	bool won = false;
 	while (running) {
 		drawField(field, yoff, xoff, false);
 		move(yoff + currow, xoff + (curcol * 2));
@@ -102,9 +103,18 @@ int main() {
 				flag(field, currow, curcol);
 				break;
 		}
+		// check for a win
+		if (field->getRemaining() == 0) {
+			running = false;
+			won = true;
+		}
+	}
+	string msg = "Game over";
+	if (won) {
+		msg += ", you won!";
 	}
 	drawField(field, yoff, xoff, true);
-	move(yoff + currow, xoff + (curcol * 2));
+	mvprintw(yoff - 1, xoff, msg.c_str());
 	getch();
 	// end ncurses
 	delete field;

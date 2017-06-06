@@ -39,6 +39,8 @@ class Field {
 		char getChar(int, int, bool) const;
 		// returns whether or not there are mines
 		bool isPopulated() const;
+		// returns the number of non-mine cells remaining
+		int getRemaining() const;
 	private:
 		int getVal(int, int) const;
 		void activate_r(int, int);
