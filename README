@@ -1,12 +1,12 @@
-===================================================================================================
+===============================================================================
                                            MINESWEEPER
 						                  Duncan Tilley
-===================================================================================================
+===============================================================================
 
 1. Basic info
-This is a remake of the classic Minesweeper game using the ncurses library. It is very basic and
-is in no way intended to be a fully-featured remake. At the moment it features a single difficulty
-level with a 20x20 minefield.
+This is a remake of the classic Minesweeper game using the ncurses library. It
+is very basic and is in no way intended to be a fully-featured remake. At the
+moment it features a single difficulty level with a 20x20 minefield.
 
 2. Controls
 Movement uses vim-style bindings:
@@ -19,19 +19,24 @@ space - activate cell
 q - end game/quit
 
 3. Rules
-The goal is to activate all the cells that do not contain mines. You can flag cells that you
-believe to contain mines in order to avoid accidental activation thereof.
-A number in an activated cell shows how many mines are contained in its immediate neighbours, e.g.
-consider the following:
+The goal is to activate all the cells that do not contain mines. You can flag
+cells that you believe to contain mines in order to avoid accidental activation
+thereof. The game is lost when a cell containing a mine is activated.
 
+A number in an activated cell shows how many mines are contained in its
+immediate neighbours, e.g. consider the following:
 +   1 - this cell has one mine neighbouring it
 + 2 + - the cell marked with 2 has 2 mines neighbouring it
 + + +
-
 The mines (X) may be located as follows:
-
 +   1
 + 2 X
 X + +
 
-===================================================================================================
+4. Representation
++ - unchecked cell
+  - checked empty cell (may contain a number instead, see section 3)
+? - flagged cell
+X - activated mine
+
+===============================================================================
