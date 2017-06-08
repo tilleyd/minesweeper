@@ -15,6 +15,12 @@
 #define HARD 30
 #define IMPOSSIBLE 50
 
+// characters
+#define UNCHECKED_CHAR '+'
+#define CHECKED_CHAR ' '
+#define MINE_CHAR 'X'
+#define FLAG_CHAR '?'
+
 class Field {
 	public:
 		// creates a field of size 20x20 with difficulty

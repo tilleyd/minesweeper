@@ -98,20 +98,20 @@ char Field::getChar(int r, int c, bool show) const {
 	switch (state) {
 		case NORMAL:
 			if (show && _field[r][c].hasMine()) {
-				return 'X';
+				return MINE_CHAR;
 			} else {
-				return '+';
+				return UNCHECKED_CHAR;
 			}
 			break;
 		case CHECKED:
 			if (val > 0) {
 				return ('0' + val);
 			} else {
-				return ' ';
+				return CHECKED_CHAR;
 			}
 			break;
 		case FLAGGED:
-			return '?';
+			return FLAG_CHAR;
 			break;
 		default:
 			return ' ';
